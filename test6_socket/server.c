@@ -139,14 +139,11 @@ int main (void) {
 void sockAddrInit (struct sockaddr_in *sockAddr, sa_family_t family, const char *addr, in_port_t port) {
     memset(&(*sockAddr->sin_zero), 0, sizeof(sockAddr->sin_zero));
     sockAddr->sin_family = family;
-    if ((in_addr_t)addr == INADDR_ANY) {
+    if (addr == (char *)INADDR_ANY) {
         sockAddr->sin_addr.s_addr = htonl(INADDR_ANY);
     } else {
         sockAddr->sin_addr.s_addr = inet_addr(addr);
     }
     sockAddr->sin_port = htons(port);
 }
-
-
-
 

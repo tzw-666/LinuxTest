@@ -116,8 +116,7 @@ int sockAddrInit(struct sockaddr_in *sockAddr, sa_family_t family, const char *a
 char *getLocalTime() {
     static char localTime[64];
     time_t t = time(NULL);
-    struct tm *lt = localtime(&t);
-    strcpy(localTime, asctime(lt));
+    strcpy(localTime, ctime(&t));
     localTime[strlen(localTime) - 1] = 0;
     return localTime;
 }
