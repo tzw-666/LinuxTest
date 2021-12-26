@@ -35,7 +35,8 @@ int main(int argc, char **argv)
         printf("error addr\n");
         exit(-1);
     }
-    printf("please put int your name:");
+    
+    printf("please put in your name:");
     gets(name);
     readLen = strlen(name);
     if (readLen < 1 || readLen > 20) {
